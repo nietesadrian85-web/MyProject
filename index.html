@@ -13,22 +13,39 @@
             font-family: Arial, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background: linear-gradient(to right, #2ecc71, #f1c40f);
-            color: #333;
         }
 
-        header {
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(0,0,0,0.8);
+            padding: 15px;
             text-align: center;
-            padding: 20px;
-            background: rgba(0,0,0,0.3);
-            color: white;
         }
 
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #2ecc71;
+        }
+
+        /* SECTIONS */
         section {
             max-width: 900px;
-            margin: 30px auto;
-            padding: 20px;
+            margin: 40px auto;
+            padding: 25px;
             background: white;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -47,7 +64,6 @@
 
         .image-container {
             text-align: center;
-            margin-bottom: 15px;
         }
 
         .image-container img {
@@ -58,32 +74,28 @@
         .video {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
         }
 
         iframe {
             border-radius: 10px;
         }
 
-        .links {
-            margin-top: 20px;
-        }
-
-        .links ul {
+        ul {
             list-style: none;
+            text-align: center;
         }
 
-        .links li {
+        li {
             margin: 10px 0;
         }
 
-        .links a {
-            text-decoration: none;
+        a.link {
             color: #2c3e50;
             font-weight: bold;
+            text-decoration: none;
         }
 
-        .links a:hover {
+        a.link:hover {
             color: #27ae60;
         }
 
@@ -97,43 +109,61 @@
 
 <body>
 
-<header>
-    <h1>My Portfolio</h1>
-</header>
+<!-- 🔥 NAVBAR -->
+<nav>
+    <a href="#about">About Me</a>
+    <a href="#hobbies">Hobbies</a>
+    <a href="#video">Video</a>
+    <a href="#projects">Projects</a>
+</nav>
 
-<section>
+<!-- ABOUT ME -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        (You can add your introduction here later bro 😎 — like your name, course, skills, etc.)
+    </p>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies">
     <h2>My Hobbies</h2>
-
     <p>
         My hobbies include playing baseball, which helps me stay active, improve teamwork, 
         and enjoy outdoor activities. I also enjoy playing Mobile Legends, as it sharpens 
-        my strategic thinking, decision-making, and coordination while having fun with friends. 
-        Aside from these, I like going out with my friends to relax and enjoy.
+        my strategic thinking, decision-making, and coordination while having fun with friends.
     </p>
 
     <div class="image-container">
         <img src="Messenger_creation_AAF1B893-CC8F-4360-8D8A-58CB691CD888.jpeg" alt="My Baseball Team">
         <p><strong>This is my Baseball team</strong></p>
     </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+    <h2>Baseball Video</h2>
 
     <div class="video">
         <iframe width="400" height="250" 
             src="https://www.youtube.com/embed/E160D9rEY0M" 
-            title="YouTube video" allowfullscreen>
+            allowfullscreen>
         </iframe>
     </div>
 
     <p style="text-align:center;">
-        <a href="https://youtu.be/E160D9rEY0M" target="_blank">Watch Baseball Tutorial</a>
+        <a class="link" href="https://youtu.be/E160D9rEY0M" target="_blank">Watch Tutorial</a>
     </p>
 </section>
 
-<section class="links">
+<!-- PROJECTS -->
+<section id="projects">
     <h2>My Canva Projects</h2>
+
     <ul>
-        <li><a href="https://www.canva.com/design/DAGvdx32Vkw/wX-fL5VxYdSE7_kgauxymQ/edit" target="_blank">My Portfolio Design</a></li>
-        <li><a href="https://www.canva.com/design/DAGvrvmnUqQ/0y88k8X00U5POYE0w-Ck_w/edit" target="_blank">Problem and Solution Design</a></li>
-        <li><a href="https://www.figma.com/design/v4Jn67gwZuYeOw4EqlVHBf" target="_blank">My Portfolio in Figma</a></li>
+        <li><a class="link" href="https://www.canva.com/design/DAGvdx32Vkw/wX-fL5VxYdSE7_kgauxymQ/edit" target="_blank">My Portfolio Design</a></li>
+        <li><a class="link" href="https://www.canva.com/design/DAGvrvmnUqQ/0y88k8X00U5POYE0w-Ck_w/edit" target="_blank">Problem and Solution Design</a></li>
+        <li><a class="link" href="https://www.figma.com/design/v4Jn67gwZuYeOw4EqlVHBf" target="_blank">My Portfolio in Figma</a></li>
     </ul>
 </section>
 
