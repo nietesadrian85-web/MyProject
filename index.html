@@ -6,31 +6,30 @@
 <title>My Portfolio</title>
 
 <style>
-/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial;
 }
 
-/* BODY */
+/* BACKGROUND */
 body {
-    font-family: Arial, sans-serif;
     background: linear-gradient(to right, #4e54c8, #8f94fb);
     color: white;
 }
 
-/* NAVBAR */
+/* NAVBAR (TOP LEFT + FIXED) */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(20, 20, 60, 0.95);
+    background: #1a1a40;
     padding: 15px 20px;
     display: flex;
     justify-content: flex-start;
-    gap: 25px;
+    gap: 20px;
     z-index: 1000;
 }
 
@@ -42,44 +41,32 @@ nav a {
 }
 
 nav a:hover {
-    color: #aab0ff;
+    color: #b3b7ff;
 }
 
-/* SECTIONS */
-section {
+/* PAGES (FULL WIDTH NOW) */
+.page {
     display: none;
     min-height: 100vh;
     padding: 100px 40px 40px;
-}
-
-section.active {
-    display: block;
-}
-
-/* CONTENT STYLE */
-.container {
-    max-width: 1000px;
-    margin: auto;
     text-align: center;
 }
 
-/* IMAGES */
-img {
-    max-width: 300px;
-    border-radius: 10px;
-    margin-top: 15px;
+/* ACTIVE PAGE */
+.active {
+    display: block;
 }
 
-/* HEADINGS */
-h1 {
-    margin-bottom: 15px;
+/* IMAGE */
+img {
+    width: 300px;
+    border-radius: 10px;
+    margin-top: 15px;
 }
 
 /* VIDEO */
 iframe {
     margin-top: 20px;
-    width: 80%;
-    height: 400px;
     border-radius: 10px;
 }
 </style>
@@ -89,67 +76,55 @@ iframe {
 
 <!-- NAVBAR -->
 <nav>
-    <a onclick="showSection('about')">About Me</a>
-    <a onclick="showSection('certificates')">My Certificates</a>
-    <a onclick="showSection('hobbies')">My Hobbies</a>
-    <a onclick="showSection('video')">Video</a>
+    <a onclick="showPage('about')">About Me</a>
+    <a onclick="showPage('certificates')">My Certificates</a>
+    <a onclick="showPage('hobbies')">My Hobbies</a>
+    <a onclick="showPage('video')">Video</a>
 </nav>
 
-<!-- ABOUT -->
-<section id="about" class="active">
-    <div class="container">
-        <h1>About Me</h1>
-        <p>
-            Hi! I'm a first-year IT student. I enjoy designing, creating projects,
-            and learning new things in technology.
-        </p>
-    </div>
-</section>
+<!-- ABOUT PAGE -->
+<div id="about" class="page active">
+    <h1>About Me</h1>
+    <p>helu</p>
+</div>
 
-<!-- CERTIFICATES -->
-<section id="certificates">
-    <div class="container">
-        <h1>My Certificates</h1>
-        <p>Here are some of my certificates:</p>
+<!-- CERTIFICATES PAGE -->
+<div id="certificates" class="page">
+    <h1>My Certificates</h1>
+    <p>Here is my certificate:</p>
 
-        <!-- Replace image below with your own -->
-        <img src="https://via.placeholder.com/300x200" alt="Certificate">
+    <!-- PUT YOUR CERTIFICATE IMAGE HERE -->
+    <img src="https://via.placeholder.com/300x200" alt="Certificate">
+</div>
 
-    </div>
-</section>
+<!-- HOBBIES PAGE -->
+<div id="hobbies" class="page">
+    <h1>My Hobbies</h1>
+    <p>My hobbies include playing baseball and Mobile Legends.</p>
 
-<!-- HOBBIES -->
-<section id="hobbies">
-    <div class="container">
-        <h1>My Hobbies</h1>
-        <p>
-            I enjoy playing baseball and Mobile Legends.
-            Baseball helps me stay active, while gaming improves my strategy and teamwork.
-        </p>
+    <img src="Messenger_creation_AAF1B893-CC8F-4360-8D8A-58CB691CD888.jpeg">
+    <h3>This is my Baseball team</h3>
+</div>
 
-        <img src="your-baseball-photo.jpg" alt="Baseball Team">
-        <p>This is my baseball team</p>
-    </div>
-</section>
+<!-- VIDEO PAGE -->
+<div id="video" class="page">
+    <h1>Baseball Video</h1>
 
-<!-- VIDEO -->
-<section id="video">
-    <div class="container">
-        <h1>Baseball Video</h1>
+    <iframe width="500" height="300"
+        src="https://www.youtube.com/embed/E160D9rEY0M"
+        allowfullscreen>
+    </iframe>
+</div>
 
-        <iframe src="https://www.youtube.com/embed/9V7z4n7Q4Jk"
-        allowfullscreen></iframe>
-
-    </div>
-</section>
-
-<!-- SCRIPT -->
+<!-- JAVASCRIPT -->
 <script>
-function showSection(sectionId) {
-    let sections = document.querySelectorAll("section");
-    sections.forEach(sec => sec.classList.remove("active"));
+function showPage(pageId) {
+    var pages = document.querySelectorAll('.page');
+    pages.forEach(function(page) {
+        page.classList.remove('active');
+    });
 
-    document.getElementById(sectionId).classList.add("active");
+    document.getElementById(pageId).classList.add('active');
 }
 </script>
 
