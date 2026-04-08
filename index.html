@@ -1,119 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        body {
-            <nav class="navbar">
-    <h1 class="logo">My Portfolio</h1>
-    <div class="nav-links">
-        <a href="#about">About Me</a>
-        <a href="#hobbies">Hobbies</a>
-        <a href="#video">Video</a>
-        <a href="#projects">Projects</a>
-    </div>
-</nav>
-            background: linear-gradient(to right, #2ecc71, #f1c40f);
-        }
+body {
+    background: linear-gradient(to right, #2ecc71, #f1c40f);
+}
 
-        /* NAVBAR */
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(0,0,0,0.8);
-            padding: 15px;
-            text-align: center;
-        }
+/* NAVBAR */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #2c3e50;
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        nav a:hover {
-            color: #2ecc71;
-        }
+nav a:hover {
+    color: #2ecc71;
+}
 
-        /* SECTIONS */
-        section {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 25px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
+/* SECTIONS */
+section {
+    max-width: 900px;
+    margin: 100px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
 
-        h1, h2 {
-            text-align: center;
-            margin-bottom: 15px;
-        }
+h1 {
+    margin-bottom: 15px;
+}
 
-        p {
-            text-align: center;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
+p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
 
-        .image-container {
-            text-align: center;
-        }
+img {
+    width: 250px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
 
-        .image-container img {
-            width: 250px;
-            border-radius: 10px;
-        }
+iframe {
+    margin-top: 20px;
+    border-radius: 10px;
+}
 
-        .video {
-            display: flex;
-            justify-content: center;
-        }
+/* PROJECT LINKS */
+a.project {
+    display: block;
+    margin: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #2c3e50;
+}
 
-        iframe {
-            border-radius: 10px;
-        }
-
-        ul {
-            list-style: none;
-            text-align: center;
-        }
-
-        li {
-            margin: 10px 0;
-        }
-
-        a.link {
-            color: #2c3e50;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        a.link:hover {
-            color: #27ae60;
-        }
-
-        footer {
-            text-align: center;
-            padding: 15px;
-            color: white;
-        }
-    </style>
+a.project:hover {
+    color: #27ae60;
+}
+</style>
 </head>
 
 <body>
@@ -126,59 +99,59 @@
     <a href="#projects">Projects</a>
 </nav>
 
-<!-- ABOUT ME -->
+<!-- ABOUT -->
 <section id="about">
-    <h2>About Me</h2>
+    <h1>About Me</h1>
     <p>
-        (You can add your introduction here later bro 😎 — like your name, course, skills, etc.)
+        Hi! I'm a first-year IT student. I enjoy designing, creating projects, 
+        and learning new things in technology. (You can edit this later 😎)
     </p>
 </section>
 
 <!-- HOBBIES -->
 <section id="hobbies">
-    <h2>My Hobbies</h2>
+    <h1>My Hobbies</h1>
     <p>
         My hobbies include playing baseball, which helps me stay active, improve teamwork, 
         and enjoy outdoor activities. I also enjoy playing Mobile Legends, as it sharpens 
         my strategic thinking, decision-making, and coordination while having fun with friends.
     </p>
 
-    <div class="image-container">
-        <img src="Messenger_creation_AAF1B893-CC8F-4360-8D8A-58CB691CD888.jpeg" alt="My Baseball Team">
-        <p><strong>This is my Baseball team</strong></p>
-    </div>
+    <img src="Messenger_creation_AAF1B893-CC8F-4360-8D8A-58CB691CD888.jpeg" alt="Baseball Team">
+
+    <h3>This is my Baseball team</h3>
 </section>
 
 <!-- VIDEO -->
 <section id="video">
-    <h2>Baseball Video</h2>
+    <h1>Baseball Video</h1>
 
-    <div class="video">
-        <iframe width="400" height="250" 
-            src="https://www.youtube.com/embed/E160D9rEY0M" 
-            allowfullscreen>
-        </iframe>
-    </div>
+    <iframe width="400" height="250"
+        src="https://www.youtube.com/embed/E160D9rEY0M"
+        allowfullscreen>
+    </iframe>
 
-    <p style="text-align:center;">
-        <a class="link" href="https://youtu.be/E160D9rEY0M" target="_blank">Watch Tutorial</a>
+    <p>
+        <a href="https://youtu.be/E160D9rEY0M" target="_blank">Watch Tutorial</a>
     </p>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-    <h2>My Canva Projects</h2>
+    <h1>My Projects</h1>
 
-    <ul>
-        <li><a class="link" href="https://www.canva.com/design/DAGvdx32Vkw/wX-fL5VxYdSE7_kgauxymQ/edit" target="_blank">My Portfolio Design</a></li>
-        <li><a class="link" href="https://www.canva.com/design/DAGvrvmnUqQ/0y88k8X00U5POYE0w-Ck_w/edit" target="_blank">Problem and Solution Design</a></li>
-        <li><a class="link" href="https://www.figma.com/design/v4Jn67gwZuYeOw4EqlVHBf" target="_blank">My Portfolio in Figma</a></li>
-    </ul>
+    <a class="project" href="https://www.canva.com/design/DAGvdx32Vkw/wX-fL5VxYdSE7_kgauxymQ/edit" target="_blank">
+        My Portfolio Design
+    </a>
+
+    <a class="project" href="https://www.canva.com/design/DAGvrvmnUqQ/0y88k8X00U5POYE0w-Ck_w/edit" target="_blank">
+        Problem and Solution Design
+    </a>
+
+    <a class="project" href="https://www.figma.com/design/v4Jn67gwZuYeOw4EqlVHBf" target="_blank">
+        My Portfolio in Figma
+    </a>
 </section>
-
-<footer>
-    <p>© 2026 My Portfolio</p>
-</footer>
 
 </body>
 </html>
