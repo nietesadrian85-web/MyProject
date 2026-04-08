@@ -5,12 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>My Portfolio</title>
 
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* BACKGROUND */
@@ -19,7 +22,7 @@ body {
     color: white;
 }
 
-/* NAVBAR (TOP LEFT + FIXED) */
+/* NAVBAR */
 nav {
     position: fixed;
     top: 0;
@@ -28,7 +31,6 @@ nav {
     background: #1a1a40;
     padding: 15px 20px;
     display: flex;
-    justify-content: flex-start;
     gap: 20px;
     z-index: 1000;
 }
@@ -36,7 +38,7 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
     cursor: pointer;
 }
 
@@ -44,7 +46,7 @@ nav a:hover {
     color: #b3b7ff;
 }
 
-/* PAGES (FULL WIDTH NOW) */
+/* PAGES */
 .page {
     display: none;
     min-height: 100vh;
@@ -52,7 +54,6 @@ nav a:hover {
     text-align: center;
 }
 
-/* ACTIVE PAGE */
 .active {
     display: block;
 }
@@ -68,6 +69,8 @@ img {
 iframe {
     margin-top: 20px;
     border-radius: 10px;
+    width: 80%;
+    height: 400px;
 }
 </style>
 </head>
@@ -76,53 +79,64 @@ iframe {
 
 <!-- NAVBAR -->
 <nav>
+    <a onclick="showPage('home')">Home</a>
     <a onclick="showPage('about')">About Me</a>
     <a onclick="showPage('certificates')">My Certificates</a>
     <a onclick="showPage('hobbies')">My Hobbies</a>
     <a onclick="showPage('video')">Video</a>
 </nav>
 
-<!-- ABOUT PAGE -->
-<div id="about" class="page active">
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+    <h1>Welcome to My Portfolio</h1>
+    <p>Hello! Explore my website to learn more about me, my hobbies, and my work.</p>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
     <h1>About Me</h1>
     <p>helu</p>
 </div>
 
-<!-- CERTIFICATES PAGE -->
+<!-- CERTIFICATES -->
 <div id="certificates" class="page">
     <h1>My Certificates</h1>
     <p>Here is my certificate:</p>
 
-    <!-- PUT YOUR CERTIFICATE IMAGE HERE -->
+    <!-- WORKING PLACEHOLDER -->
     <img src="https://via.placeholder.com/300x200" alt="Certificate">
+
+    <!-- Replace with your real image like:
+    <img src="images/certificate.jpg">
+    -->
 </div>
 
-<!-- HOBBIES PAGE -->
+<!-- HOBBIES -->
 <div id="hobbies" class="page">
     <h1>My Hobbies</h1>
-    <p>My hobbies include playing baseball and Mobile Legends.</p>
+    <p>I enjoy playing baseball and Mobile Legends.</p>
 
-    <img src="Messenger_creation_AAF1B893-CC8F-4360-8D8A-58CB691CD888.jpeg">
-    <h3>This is my Baseball team</h3>
+    <!-- FIX THIS PATH -->
+    <img src="Messenger_creation_AAF1B893-CC8F-4360-8D8A-58CB691CD888.jpeg" alt="Baseball Team">
+
+    <p>This is my baseball team</p>
 </div>
 
-<!-- VIDEO PAGE -->
+<!-- VIDEO -->
 <div id="video" class="page">
     <h1>Baseball Video</h1>
 
-    <iframe width="500" height="300"
-        src="https://www.youtube.com/embed/E160D9rEY0M"
+    <!-- FIXED YOUTUBE EMBED -->
+    <iframe src="https://www.youtube.com/embed/E160D9rEY0M"
         allowfullscreen>
     </iframe>
 </div>
 
-<!-- JAVASCRIPT -->
+<!-- SCRIPT -->
 <script>
 function showPage(pageId) {
-    var pages = document.querySelectorAll('.page');
-    pages.forEach(function(page) {
-        page.classList.remove('active');
-    });
+    let pages = document.querySelectorAll('.page');
+    pages.forEach(page => page.classList.remove('active'));
 
     document.getElementById(pageId).classList.add('active');
 }
