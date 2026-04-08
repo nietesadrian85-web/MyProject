@@ -72,6 +72,22 @@ iframe {
     width: 80%;
     height: 400px;
 }
+
+/* BUTTON STYLE */
+.download-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #1a1a40;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.download-btn:hover {
+    background: #2a2a60;
+}
 </style>
 </head>
 
@@ -84,6 +100,7 @@ iframe {
     <a onclick="showPage('certificates')">My Certificates</a>
     <a onclick="showPage('hobbies')">My Hobbies</a>
     <a onclick="showPage('video')">Video</a>
+    <a onclick="showPage('resume')">My Resume</a>
 </nav>
 
 <!-- HOME PAGE -->
@@ -95,7 +112,7 @@ iframe {
 <!-- ABOUT -->
 <div id="about" class="page">
     <h1>About Me</h1>
-    <p>helu</p>
+    <p>I am a creative and detail-oriented graphic designer with a passion for web design and logo creation.</p>
 </div>
 
 <!-- CERTIFICATES -->
@@ -103,12 +120,7 @@ iframe {
     <h1>My Certificates</h1>
     <p>Here is my certificate:</p>
 
-    <!-- WORKING PLACEHOLDER -->
     <img src="https://via.placeholder.com/300x200" alt="Certificate">
-
-    <!-- Replace with your real image like:
-    <img src="images/certificate.jpg">
-    -->
 </div>
 
 <!-- HOBBIES -->
@@ -116,7 +128,6 @@ iframe {
     <h1>My Hobbies</h1>
     <p>I enjoy playing baseball and Mobile Legends.</p>
 
-    <!-- FIX THIS PATH -->
     <img src="Messenger_creation_AAF1B893-CC8F-4360-8D8A-58CB691CD888.jpeg" alt="Baseball Team">
 
     <p>This is my baseball team</p>
@@ -126,10 +137,18 @@ iframe {
 <div id="video" class="page">
     <h1>Baseball Video</h1>
 
-    <!-- FIXED YOUTUBE EMBED -->
-    <iframe src="https://www.youtube.com/embed/E160D9rEY0M"
-        allowfullscreen>
-    </iframe>
+    <iframe src="https://www.youtube.com/embed/E160D9rEY0M" allowfullscreen></iframe>
+</div>
+
+<!-- RESUME -->
+<div id="resume" class="page">
+    <h1>My Resume</h1>
+    <p>You can download my resume here:</p>
+
+    <!-- CHANGE resume.pdf TO YOUR FILE -->
+    <a href="resume.pdf" download class="download-btn">
+        Click here to download my resume
+    </a>
 </div>
 
 <!-- SCRIPT -->
