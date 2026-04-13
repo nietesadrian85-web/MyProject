@@ -1,138 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            overflow-x: hidden;
-        }
+<style>
+/* ===== GENERAL ===== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    transition: 0.3s;
+}
 
-        nav {
-            background-color: black;
-            padding: 10px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+.dark-mode {
+    background-color: #121212;
+    color: #eee;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 8px;
-            font-size: 14px;
-            font-weight: bold;
-            padding: 6px 10px;
-            border-radius: 6px;
-        }
+/* NAV */
+nav {
+    background-color: #1a1a1a;
+    padding: 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
 
-        nav a:hover {
-            background-color: white;
-            color: black;
-            transition: .2s;
-        }
+nav a {
+    color: white;
+    margin: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        section {
-            padding: 20px;
-            min-height: auto;
-            text-align: center;
-        }
+nav a:hover {
+    color: #00aaff;
+}
 
-        #about-section {
-            background-color: #d9d9d9; /* Gray */
-        }
+/* BUTTON */
+.toggle-btn {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
 
-        #baseball-section {
-            background-color: #f4a300; /* Yellow-Orange */
-        }
+/* SECTIONS */
+section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
-        #portfolio-section {
-            background-color: #b3d9ff; /* Light Blue */
-        }
+/* TITLES */
+h2 {
+    text-align: center;
+}
 
-        img {
-            max-width: 90%;
-            height: auto;
-            border-radius: 10px;
-        }
+/* IMAGE */
+#about-section img {
+    width: 150px;
+    border-radius: 50%;
+}
 
-        iframe {
-            width: 100%;
-            max-width: 350px;
-            height: 220px;
-            border-radius: 10px;
-        }
+/* SKILLS */
+.skill {
+    margin: 10px 0;
+}
 
-        ul {
-            text-align: left;
-            display: inline-block;
-            padding-left: 20px;
-        }
-    </style>
+.bar {
+    background: #ddd;
+    border-radius: 20px;
+}
+
+.fill {
+    height: 10px;
+    background: #007BFF;
+    border-radius: 20px;
+}
+
+/* CONTACT */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+button {
+    padding: 10px;
+    background: #007BFF;
+    color: white;
+    border: none;
+}
+
+/* ANIMATION */
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade 1s forwards;
+}
+
+@keyframes fade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <nav>
-        <a href="#about-section">About Me</a>
-        <a href="#baseball-section">Baseball</a>
-        <a href="#portfolio-section">Portfolio</a>
-    </nav>
-    
-    <section id="about-section">
-        <h2>About Me</h2>
-        <p>My hobbies include playing baseball to stay active and enjoy teamwork.
-        I also enjoy playing Mobile Legends for fun and strategy. I like going out
-        with friends to relax and enjoy!</p>
+<button class="toggle-btn" onclick="toggleMode()">🌙</button>
 
-        <img src="Messenger_creation_AAF1B893-CC8F-4360-8D8A-58CB691CD888.jpeg" 
-        alt="My Picture">
-        
-       
+<nav>
+    <a href="#about-section">About</a>
+    <a href="#skills-section">Skills</a>
+    <a href="#portfolio-section">Portfolio</a>
+    <a href="#contact-section">Contact</a>
+</nav>
 
-        <h5>This is my Baseball team</h5>
-    </section>
+<!-- ABOUT -->
+<section id="about-section" class="fade">
+    <h2>About Me</h2>
+    <p>
+    Hi! I'm an IT student who loves creating designs and building simple systems.
+    I specialize in Canva, Figma, and basic programming.
+    </p>
+    <img src="Messenger_creation_AAF1B893-CC8F-4360-8D8A-58CB691CD888.jpeg">
+</section>
 
-    <!-- Baseball Section -->
-    <section id="baseball-section">
-        <h2>Baseball Tutorial</h2>
+<!-- SKILLS -->
+<section id="skills-section" class="fade">
+    <h2>My Skills</h2>
 
-        <iframe 
-            src="https://www.youtube.com/embed/E160D9rEY0M" 
-            title="YouTube video" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-        </iframe>
+    <div class="skill">
+        HTML
+        <div class="bar"><div class="fill" style="width:70%"></div></div>
+    </div>
 
-        <br><br>
-        <a href="https://youtu.be/E160D9rEY0M?si=KuLpAneSIP_xBvPp" 
-        target="_blank">Watch Full Video on YouTube</a>
-    </section>
+    <div class="skill">
+        Java
+        <div class="bar"><div class="fill" style="width:60%"></div></div>
+    </div>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio-section">
-        <h2>My Canva & Figma Projects</h2>
+    <div class="skill">
+        Canva
+        <div class="bar"><div class="fill" style="width:80%"></div></div>
+    </div>
 
-        <ul>
-            <li><a href="https://www.canva.com/design/DAGvdx32Vkw/wX-fL5VxYdSE7_kgauxymQ/edit?utm_content=DAGvdx32Vkw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">My Portfolio Design (Canva)</a></li>
-            
-            <img src="IMG_20251028_152609.jpg" alt="My Picture" width="200">
+    <div class="skill">
+        Customer Service
+        <div class="bar"><div class="fill" style="width:85%"></div></div>
+    </div>
+</section>
 
-            <li><a href="https://www.canva.com/design/DAGvrvmnUqQ/0y88k8X00U5POYE0w-Ck_w/edit?utm_content=DAGvrvmnUqQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">Problem & Solution Design (Canva)</a></li>
-            
-            <img src="/IMG_20251028_153027.jpg" alt="My Picture" width="200">
+<!-- PORTFOLIO -->
+<section id="portfolio-section" class="fade">
+    <h2>My Projects</h2>
 
-            <li><a href="https://www.figma.com/design/v4Jn67gwZuYeOw4EqlVHBf?node-id=" target="_blank">My Portfolio (Figma)</a></li>
-            
-            <img src="/IMG_20251028_153122.jpg" alt="My Picture" width="200">
-            
-        </ul>
-    </section>
+    <a href="#" target="_blank">Canva Design</a><br>
+    <img src="IMG_20251028_152609.jpg" width="200">
+
+    <br><br>
+
+    <a href="#" target="_blank">Figma Design</a><br>
+    <img src="IMG_20251028_153122.jpg" width="200">
+</section>
+
+<!-- CONTACT -->
+<section id="contact-section" class="fade">
+    <h2>Contact Me</h2>
+
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea placeholder="Your Message"></textarea>
+
+    <button>Send Message</button>
+</section>
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark-mode");
+}
+</script>
 
 </body>
 </html>
