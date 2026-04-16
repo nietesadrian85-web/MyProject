@@ -19,13 +19,13 @@
 }
 
 * { box-sizing: border-box; scroll-behavior: smooth; }
-body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-primary); }
+body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-primary); overflow-x: hidden; }
 
-/* ===== NAVIGATION ===== */
+/* ===== NARROWER NAV FOR BETTER VIEWPORT ===== */
 nav {
-    background: rgba(10, 10, 12, 0.95);
-    backdrop-filter: blur(20px);
-    padding: 20px 0;
+    background: rgba(10, 10, 12, 0.9);
+    backdrop-filter: blur(15px);
+    padding: 15px 0;
     text-align: center;
     position: sticky;
     top: 0;
@@ -36,235 +36,186 @@ nav a {
     color: var(--text-secondary);
     margin: 0 15px;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
     text-transform: uppercase;
 }
 nav a:hover { color: var(--accent); }
 
-/* ===== HOME ===== */
+/* ===== COMPACT SECTIONS ===== */
+section { 
+    max-width: 1100px; 
+    margin: 20px auto; 
+    padding: 40px; 
+    border-radius: 24px; 
+    background: var(--bg-card); 
+    border: 1px solid var(--border);
+}
+
+h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; margin-top: 0; margin-bottom: 25px; }
+h2 span { color: var(--accent); }
+
+/* ===== HOME: HERO SECTION ===== */
 #home-section {
-    height: 90vh;
+    min-height: 60vh; /* Reduced from 90vh to bring content up */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    text-align: center;
-    padding: 20px;
+    justify-content: center;
+    gap: 50px;
+    padding: 40px;
+    text-align: left;
 }
 #home-section img {
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    border: 3px solid var(--accent);
-    margin-bottom: 20px;
+    width: 250px; height: 250px;
+    border-radius: 30px; /* Modern squircle */
+    border: 4px solid var(--accent);
     object-fit: cover;
 }
 
-/* ===== NEW EXPERIENCES & SKILLS DESIGN ===== */
-section { max-width: 950px; margin: 60px auto; padding: 50px; border-radius: 30px; background: var(--bg-card); border: 1px solid var(--border); }
-h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 40px; text-align: center; }
-h2 span { color: var(--accent); }
-
+/* ===== SKILLS: GRID COMPACT ===== */
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 30px;
-    margin-bottom: 50px;
-    text-align: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
 }
-
 .skill-card {
     background: #1a1a1e;
-    padding: 25px;
-    border-radius: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
     border: 1px solid var(--border);
-    transition: 0.3s;
 }
 
-.skill-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-
-.circle-chart {
-    width: 80px; height: 80px;
-    border-radius: 50%;
-    margin: 0 auto 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: conic-gradient(var(--accent) var(--p), #2d2d32 0);
-    position: relative;
+/* ===== DUAL COLUMN LAYOUT FOR WORK & CONTACT ===== */
+.main-content-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto 40px;
 }
-.circle-chart::after {
-    content: attr(data-percent);
-    position: absolute;
-    width: 65px; height: 65px;
+
+.compact-box {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    height: 100%;
+}
+
+/* WORK LINKS */
+.work-item {
     background: #1a1a1e;
-    border-radius: 50%;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+.work-item:hover { border-color: var(--accent); background: #242429; }
+
+/* CONTACT LIST */
+.contact-item {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-weight: bold;
+    gap: 15px;
+    padding: 12px;
+    background: #1a1a1e;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 10px;
     font-size: 0.9rem;
 }
 
-/* EXPERIENCES CARDS */
-.exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-.exp-card { 
-    background: #1a1a1e; 
-    border-radius: 20px; 
-    overflow: hidden; 
-    border: 1px solid var(--border);
-}
-.exp-card img { width: 100%; height: 250px; object-fit: cover; transition: 0.5s; }
-.exp-card:hover img { transform: scale(1.05); }
-.exp-info { padding: 20px; border-top: 1px solid var(--border); }
-
-/* WORK & CONTACT */
-.work-list ul { list-style: none; padding: 0; }
-.work-list li { margin: 15px 0; border-left: 2px solid var(--accent); padding-left: 15px; }
-.work-list a { color: var(--text-primary); text-decoration: none; font-weight: 600; }
-.contact-item { display: flex; align-items: center; gap: 20px; padding: 20px; background: #1a1a1e; border-radius: 15px; text-decoration: none; color: white; margin-bottom: 15px; border: 1px solid var(--border); }
-
 /* CHATBOT */
-#chat-head { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: var(--accent); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 2000; }
-#chat-box { position: fixed; bottom: 100px; right: 30px; width: 330px; height: 450px; background: #141417; border: 1px solid var(--accent); border-radius: 20px; display: none; flex-direction: column; z-index: 2000; }
-.chat-header { background: var(--accent); color: #000; padding: 15px; border-radius: 18px 18px 0 0; display: flex; justify-content: space-between; font-weight: bold; }
-.chat-body { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
-.msg { padding: 10px 14px; border-radius: 15px; font-size: 0.85rem; max-width: 80%; }
-.luna { background: #1f1f23; align-self: flex-start; }
-.user { background: var(--accent); color: #000; align-self: flex-end; }
-.chat-input-area { padding: 15px; border-top: 1px solid var(--border); display: flex; gap: 10px; }
-.chat-input-area input { flex: 1; background: #0a0a0c; border: 1px solid var(--border); padding: 10px; color: white; border-radius: 8px; }
+#chat-head { position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background: var(--accent); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 2000; }
 
-.fade { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+/* ANIMATION */
+.fade { opacity: 0; transform: translateY(20px); transition: 0.6s ease-out; }
 .fade.visible { opacity: 1; transform: translateY(0); }
 
-@media (max-width: 768px) { .exp-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) {
+    #home-section { flex-direction: column; text-align: center; min-height: auto; }
+    .main-content-grid { grid-template-columns: 1fr; padding: 0 15px; }
+    .skills-container { grid-template-columns: 1fr 1fr; }
+}
 </style>
 </head>
 <body>
 
 <nav>
     <a href="#home-section">Home</a>
-    <a href="#exp-section">My Experiences</a>
+    <a href="#exp-section">Experiences</a>
     <a href="#portfolio-section">Work</a>
-    <a href="#contact-section">Contact Me</a>
+    <a href="#contact-section">Contact</a>
 </nav>
 
-<div id="home-section">
+<div id="home-section" class="fade">
     <img src="IMG20260323194713.jpg" alt="Adrian">
-    <h1>Welcome to My <span>Portfolio</span></h1>
-    <p style="color: var(--text-secondary); font-size: 1.2rem; margin-top: 10px;">I'm Adrian N. Tequillo, an IT Student & Designer.</p>
+    <div>
+        <h1>Hi, I'm <span>Adrian</span></h1>
+        <p style="color: var(--text-secondary); font-size: 1.3rem; max-width: 500px;">
+            IT Student & UI Designer. I build clean digital experiences with code and creativity.
+        </p>
+    </div>
 </div>
 
 <section id="exp-section" class="fade">
     <h2>Skills & <span>Expertise</span></h2>
-    
     <div class="skills-container">
-        <div class="skill-card">
-            <div class="circle-chart" style="--p: 70%" data-percent="70%"></div>
-            <span>HTML / CSS</span>
-        </div>
-        <div class="skill-card">
-            <div class="circle-chart" style="--p: 60%" data-percent="60%"></div>
-            <span>Java</span>
-        </div>
-        <div class="skill-card">
-            <div class="circle-chart" style="--p: 85%" data-percent="85%"></div>
-            <span>Canva</span>
-        </div>
-        <div class="skill-card">
-            <div class="circle-chart" style="--p: 80%" data-percent="80%"></div>
-            <span>Figma</span>
-        </div>
+        <div class="skill-card"><strong>70%</strong><br><small>HTML/CSS</small></div>
+        <div class="skill-card"><strong>60%</strong><br><small>Java</small></div>
+        <div class="skill-card"><strong>85%</strong><br><small>Canva</small></div>
+        <div class="skill-card"><strong>80%</strong><br><small>Figma</small></div>
     </div>
 
-    <h2>IT <span>Seminar Journey</span></h2>
-    <div class="exp-grid">
-        <div class="exp-card">
-            <a href="IMG_20260416_192826.jpg" target="_blank"><img src="IMG_20260416_192826.jpg" alt="Seminar 1"></a>
-            <div class="exp-info">
-                <strong>Tech Trends 2026</strong>
-                <p style="font-size: 0.8rem; color: var(--text-secondary);">Participated in the latest emerging technology discussion.</p>
-            </div>
-        </div>
-        <div class="exp-card">
-            <a href="IMG_20260416_192748.jpg" target="_blank"><img src="IMG_20260416_192748.jpg" alt="Seminar 2"></a>
-            <div class="exp-info">
-                <strong>Modern IT Workshop</strong>
-                <p style="font-size: 0.8rem; color: var(--text-secondary);">Hands-on session with development tools.</p>
-            </div>
-        </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+        <a href="IMG_20260416_192826.jpg" target="_blank">
+            <img src="IMG_20260416_192826.jpg" style="width: 100%; border-radius: 15px;" alt="Seminar">
+        </a>
+        <a href="IMG_20260416_192748.jpg" target="_blank">
+            <img src="IMG_20260416_192748.jpg" style="width: 100%; border-radius: 15px;" alt="Seminar">
+        </a>
     </div>
 </section>
 
-<section id="portfolio-section" class="fade">
-    <h2>Featured <span>Work</span></h2>
-    <div class="exp-grid" style="margin-bottom: 30px;">
-        <div class="exp-card">
-            <a href="https://www.canva.com/design/DAGvdx32Vkw/wX-fL5VxYdSE7_kgauxymQ/edit" target="_blank"><img src="IMG_20251028_152609.jpg" alt="Work 1"></a>
-        </div>
-        <div class="exp-card">
-            <a href="https://www.figma.com/design/v4Jn67gwZuYeOw4EqlVHBf" target="_blank"><img src="IMG_20251028_153122.jpg" alt="Work 2"></a>
-        </div>
+<div class="main-content-grid">
+    <div id="portfolio-section" class="compact-box fade">
+        <h2>Featured <span>Work</span></h2>
+        <a href="https://www.canva.com/design/DAGvdx32Vkw/wX-fL5VxYdSE7_kgauxymQ/edit" target="_blank" class="work-item">
+            <span>Portfolio Design (Canva)</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a href="https://www.canva.com/design/DAGvrvmnUqQ/0y88k8X00U5POYE0w-Ck_w/edit" target="_blank" class="work-item">
+            <span>Problem/Solution (Canva)</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a href="https://www.figma.com/design/v4Jn67gwZuYeOw4EqlVHBf" target="_blank" class="work-item">
+            <span>Main Prototype (Figma)</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
     </div>
-    <div class="work-list">
-        <h3>Direct Project Links</h3>
-        <ul>
-            <li><a href="https://www.canva.com/design/DAGvdx32Vkw/wX-fL5VxYdSE7_kgauxymQ/edit" target="_blank">Canva: My Portfolio Design &rarr;</a></li>
-            <li><a href="https://www.canva.com/design/DAGvrvmnUqQ/0y88k8X00U5POYE0w-Ck_w/edit" target="_blank">Canva: Problem/Solution Design &rarr;</a></li>
-            <li><a href="https://www.figma.com/design/v4Jn67gwZuYeOw4EqlVHBf" target="_blank">Figma: Main Prototype &rarr;</a></li>
-        </ul>
-    </div>
-</section>
 
-<section id="contact-section" class="fade">
-    <h2>Contact <span>Me</span></h2>
-    <a href="mailto:nietesadrian85@gmail.com" class="contact-item"><i class="fa-solid fa-envelope" style="color:var(--accent)"></i> nietesadrian85@gmail.com</a>
-    <a href="tel:09511989226" class="contact-item"><i class="fa-solid fa-phone" style="color:var(--accent)"></i> 09511989226</a>
-    <a href="https://facebook.com" target="_blank" class="contact-item"><i class="fa-brands fa-facebook" style="color:var(--accent)"></i> Adrian N. Tequillo</a>
-    <a href="https://instagram.com/kiroync" target="_blank" class="contact-item"><i class="fa-brands fa-instagram" style="color:var(--accent)"></i> @kiroync</a>
-</section>
-
-<div id="chat-head" onclick="toggleChat()"><i class="fa-solid fa-robot" style="color:#000;"></i></div>
-<div id="chat-box">
-    <div class="chat-header"><span>Luna AI</span><span onclick="toggleChat()" style="cursor:pointer">&times;</span></div>
-    <div class="chat-body" id="chat-content">
-        <div class="msg luna">Hi! I'm Luna. Ask me about Adrian's seminars or designs!</div>
-    </div>
-    <div class="chat-input-area">
-        <input type="text" id="chat-input" placeholder="Type here..." onkeypress="handleKey(event)">
-        <button onclick="sendMessage()" style="background:none; border:none; color:var(--accent);"><i class="fa-solid fa-paper-plane"></i></button>
+    <div id="contact-section" class="compact-box fade">
+        <h2>Contact <span>Me</span></h2>
+        <a href="mailto:nietesadrian85@gmail.com" class="contact-item"><i class="fa-solid fa-envelope" style="color:var(--accent)"></i> Email Me</a>
+        <a href="tel:09511989226" class="contact-item"><i class="fa-solid fa-phone" style="color:var(--accent)"></i> 09511989226</a>
+        <a href="https://facebook.com" target="_blank" class="contact-item"><i class="fa-brands fa-facebook" style="color:var(--accent)"></i> Facebook</a>
+        <a href="https://instagram.com/kiroync" target="_blank" class="contact-item"><i class="fa-brands fa-instagram" style="color:var(--accent)"></i> @kiroync</a>
     </div>
 </div>
 
+<div id="chat-head" onclick="toggleChat()"><i class="fa-solid fa-robot" style="color:#000;"></i></div>
+
 <script>
-function toggleChat() {
-    const box = document.getElementById('chat-box');
-    box.style.display = (box.style.display === 'flex') ? 'none' : 'flex';
-}
-function handleKey(e) { if (e.key === 'Enter') sendMessage(); }
-function sendMessage() {
-    const input = document.getElementById('chat-input');
-    const content = document.getElementById('chat-content');
-    if (!input.value.trim()) return;
-    const userDiv = document.createElement('div');
-    userDiv.className = 'msg user';
-    userDiv.textContent = input.value;
-    content.appendChild(userDiv);
-    const text = input.value.toLowerCase();
-    input.value = "";
-    content.scrollTop = content.scrollHeight;
-    setTimeout(() => {
-        const lunaDiv = document.createElement('div');
-        lunaDiv.className = 'msg luna';
-        if (text.includes("seminar")) lunaDiv.textContent = "Adrian attended major IT seminars in April 2026!";
-        else if (text.includes("contact")) lunaDiv.textContent = "Email him at nietesadrian85@gmail.com";
-        else lunaDiv.textContent = "I'm Luna! I can help you navigate Adrian's work.";
-        content.appendChild(lunaDiv);
-        content.scrollTop = content.scrollHeight;
-    }, 600);
-}
+function toggleChat() { alert("Luna Chat coming soon!"); }
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1 });
@@ -272,4 +223,4 @@ document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 </script>
 
 </body>
-</html>
+    </html>
