@@ -40,7 +40,6 @@ nav a {
     font-size: 0.8rem;
     letter-spacing: 1px;
     text-transform: uppercase;
-    transition: 0.3s;
 }
 nav a:hover { color: var(--accent); }
 
@@ -91,9 +90,7 @@ h3 { color: var(--accent); font-family: 'Space Grotesk', sans-serif; margin-bott
     padding: 20px;
     border-radius: 18px;
     border: 1px solid var(--border);
-    transition: 0.3s;
 }
-.skill-card:hover { border-color: var(--accent); transform: translateY(-5px); }
 
 /* ===== WORK ITEMS ===== */
 .work-grid { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
@@ -120,9 +117,7 @@ h3 { color: var(--accent); font-family: 'Space Grotesk', sans-serif; margin-bott
     text-decoration: none;
     font-weight: 700;
     border-radius: 12px;
-    transition: 0.3s;
 }
-.resume-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
 
 /* ===== CONTACT LIST ===== */
 .contact-list { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
@@ -138,8 +133,25 @@ h3 { color: var(--accent); font-family: 'Space Grotesk', sans-serif; margin-bott
     border: 1px solid var(--border);
 }
 
-/* CHATBOT */
-#chat-head { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: var(--accent); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 2000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+/* ===== CHATBOT STYLES (RESTORED) ===== */
+#chat-head { 
+    position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; 
+    background: var(--accent); border-radius: 50%; display: flex; 
+    justify-content: center; align-items: center; cursor: pointer; z-index: 2000; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+}
+#chat-box {
+    position: fixed; bottom: 100px; right: 30px; width: 330px; height: 450px;
+    background: #141417; border: 1px solid var(--accent); border-radius: 20px;
+    display: none; flex-direction: column; z-index: 2000; box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+.chat-header { background: var(--accent); color: #000; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; border-radius: 18px 18px 0 0; }
+.chat-body { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; scrollbar-width: thin; }
+.msg { padding: 10px 14px; border-radius: 15px; max-width: 80%; font-size: 0.85rem; line-height: 1.4; }
+.luna { background: #1f1f23; align-self: flex-start; border-bottom-left-radius: 2px; }
+.user { background: var(--accent); color: #000; align-self: flex-end; border-bottom-right-radius: 2px; }
+.chat-input-area { padding: 15px; border-top: 1px solid var(--border); display: flex; gap: 10px; }
+.chat-input-area input { flex: 1; background: #0a0a0c; border: 1px solid var(--border); padding: 10px; color: white; border-radius: 8px; outline: none; }
 
 /* ANIMATION */
 .fade { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
@@ -147,7 +159,7 @@ h3 { color: var(--accent); font-family: 'Space Grotesk', sans-serif; margin-bott
 
 @media (max-width: 768px) {
     .contact-list { grid-template-columns: 1fr; }
-    section { margin: 20px; padding: 40px 20px; }
+    #chat-box { width: 280px; right: 20px; }
 }
 </style>
 </head>
@@ -164,78 +176,41 @@ h3 { color: var(--accent); font-family: 'Space Grotesk', sans-serif; margin-bott
 <div id="home-section" class="fade">
     <img src="IMG20260323194713.jpg" alt="Adrian">
     <h1>Hi, I'm <span>Adrian N. Tequillo</span></h1>
-    <p style="color: var(--text-secondary); font-size: 1.4rem;">IT Student | UI/UX Designer | Technology Enthusiast</p>
+    <p style="color: var(--text-secondary); font-size: 1.4rem;">IT Student | UI/UX Designer | Tech Instructor</p>
 </div>
 
 <section id="about-section" class="fade">
     <h2>About <span>Me</span></h2>
     <div class="about-text">
-        <p>
-            Hi! I'm Adrian N. Tequillo, an IT student with a strong passion for technology, design, and teaching. 
-            I have experience working as an **IT Instructor Assistant**, where I helped students understand basic programming, 
-            computer maintenance, and IT-related projects. This experience improved my communication skills and ability 
-            to explain technical concepts in a simple way.
-        </p>
-        <p>
-            I also have a background in **graphic design**, where I create visual content using tools like Canva and Figma. 
-            I enjoy helping others become more creative and confident in their design skills. 
-        </p>
-        <p>
-            I am continuously learning and improving my abilities in coding, design, and problem-solving, 
-            with the goal of becoming a skilled IT professional and freelancer in the future.
-        </p>
+        <p>Hi! I'm Adrian N. Tequillo, an IT student with a strong passion for technology, design, and teaching. I have experience working as an IT Instructor Assistant, where I helped students understand basic programming, computer maintenance, and IT-related projects.</p>
+        <p>I also have a background in graphic design, creating visual content with Canva and Figma. I love helping others become more creative and confident in their technical skills.</p>
     </div>
 </section>
 
 <section id="exp-section" class="fade">
-    <h2>Skills & <span>Certificates</span></h2>
-    
-    <h3>Technical Expertise</h3>
+    <h2>Skills & <span>Expertise</span></h2>
     <div class="skills-container">
         <div class="skill-card"><strong>HTML / CSS</strong><p>Building responsive and modern web structures.</p></div>
         <div class="skill-card"><strong>Java Programming</strong><p>Logical problem solving and backend basics.</p></div>
         <div class="skill-card"><strong>UI/UX Design</strong><p>Crafting user interfaces in Figma and Canva.</p></div>
-        <div class="skill-card"><strong>IT Instruction</strong><p>Teaching and technical troubleshooting.</p></div>
-    </div>
-
-    <h3 style="margin-top: 40px;">Seminar Journey</h3>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
-        <img src="IMG_20260416_192826.jpg" style="width: 100%; border-radius: 15px; border: 1px solid var(--border);" alt="Certificate 1">
-        <img src="IMG_20260416_192748.jpg" style="width: 100%; border-radius: 15px; border: 1px solid var(--border);" alt="Certificate 2">
     </div>
 </section>
 
 <section id="portfolio-section" class="fade">
     <h2>My <span>Projects</span></h2>
-    <p class="about-text">Here are some of the works I have done using Figma and Canva, focusing on clean layouts and user-centered design.</p>
-    
     <div class="work-grid">
         <a href="https://www.canva.com/design/DAGvdx32Vkw/wX-fL5VxYdSE7_kgauxymQ/edit" target="_blank" class="work-item">
-            <div>
-                <strong>Portfolio Design</strong><br>
-                <small>Canva | Professional visual layout</small>
-            </div>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-        <a href="https://www.canva.com/design/DAGvrvmnUqQ/0y88k8X00U5POYE0w-Ck_w/edit" target="_blank" class="work-item">
-            <div>
-                <strong>Problem & Solution Design</strong><br>
-                <small>Canva | Infographic & Conceptual work</small>
-            </div>
+            <div><strong>Portfolio Design</strong><br><small>Canva</small></div>
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </a>
         <a href="https://www.figma.com/design/v4Jn67gwZuYeOw4EqlVHBf" target="_blank" class="work-item">
-            <div>
-                <strong>Main Website Prototype</strong><br>
-                <small>Figma | High-fidelity UI components</small>
-            </div>
+            <div><strong>Figma Prototype</strong><br><small>UI/UX Design</small></div>
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </a>
     </div>
-
     <div style="text-align: center;">
         <a href="White Clean Minimalist Resume_20260418_164534_0000.pdf" download class="resume-btn">
-            <i class="fa-solid fa-file-pdf"></i> Click here to download my resume
+            <i class="fa-solid fa-file-pdf"></i> Download My Resume
         </a>
     </div>
 </section>
@@ -243,30 +218,71 @@ h3 { color: var(--accent); font-family: 'Space Grotesk', sans-serif; margin-bott
 <section id="contact-section" class="fade">
     <h2>Contact <span>Me</span></h2>
     <div class="contact-list">
-        <a href="mailto:nietesadrian85@gmail.com" class="contact-item">
-            <i class="fa-solid fa-envelope" style="color:var(--accent); font-size: 1.5rem;"></i>
-            <div><strong>Email</strong><br>nietesadrian85@gmail.com</div>
-        </a>
-        <a href="tel:09511989226" class="contact-item">
-            <i class="fa-solid fa-phone" style="color:var(--accent); font-size: 1.5rem;"></i>
-            <div><strong>Phone</strong><br>09511989226</div>
-        </a>
-        <a href="https://facebook.com" target="_blank" class="contact-item">
-            <i class="fa-brands fa-facebook" style="color:var(--accent); font-size: 1.5rem;"></i>
-            <div><strong>Facebook</strong><br>Adrian N. Tequillo</div>
-        </a>
-        <a href="https://instagram.com/kiroync" target="_blank" class="contact-item">
-            <i class="fa-brands fa-instagram" style="color:var(--accent); font-size: 1.5rem;"></i>
-            <div><strong>Instagram</strong><br>@kiroync</div>
-        </a>
+        <a href="mailto:nietesadrian85@gmail.com" class="contact-item">Email Me</a>
+        <a href="https://instagram.com/kiroync" target="_blank" class="contact-item">Instagram</a>
     </div>
 </section>
 
 <div id="chat-head" onclick="toggleChat()"><i class="fa-solid fa-robot" style="color:#000; font-size: 1.5rem;"></i></div>
 
-<script>
-function toggleChat() { alert("Luna Chat is coming soon to assist you!"); }
+<div id="chat-box">
+    <div class="chat-header"><span>Luna AI</span><span onclick="toggleChat()" style="cursor:pointer">&times;</span></div>
+    <div class="chat-body" id="chat-content">
+        <div class="msg luna">Hi! I'm Luna. I can tell you about Adrian's skills in Java, his designs, or how to contact him. What's on your mind?</div>
+    </div>
+    <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Type a message..." onkeypress="handleKey(event)">
+        <button onclick="sendMessage()" style="background:none; border:none; color:var(--accent); cursor:pointer;"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+</div>
 
+<script>
+// --- CHATBOT LOGIC ---
+function toggleChat() {
+    const box = document.getElementById('chat-box');
+    box.style.display = (box.style.display === 'flex') ? 'none' : 'flex';
+}
+
+function handleKey(e) { if (e.key === 'Enter') sendMessage(); }
+
+function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const content = document.getElementById('chat-content');
+    if (input.value.trim() === "") return;
+
+    // User Message
+    const userDiv = document.createElement('div');
+    userDiv.className = 'msg user';
+    userDiv.textContent = input.value;
+    content.appendChild(userDiv);
+
+    const userText = input.value.toLowerCase();
+    input.value = "";
+    content.scrollTop = content.scrollHeight;
+
+    // Luna Response Logic
+    setTimeout(() => {
+        const lunaDiv = document.createElement('div');
+        lunaDiv.className = 'msg luna';
+        
+        if (userText.includes("java") || userText.includes("coding")) {
+            lunaDiv.textContent = "Adrian has a solid foundation in Java programming and loves solving logical problems!";
+        } else if (userText.includes("design") || userText.includes("figma") || userText.includes("canva")) {
+            lunaDiv.textContent = "He is very skilled in UI/UX design. He uses Figma for prototypes and Canva for visual content.";
+        } else if (userText.includes("contact") || userText.includes("email")) {
+            lunaDiv.textContent = "You can reach Adrian at nietesadrian85@gmail.com. He's usually very responsive!";
+        } else if (userText.includes("resume")) {
+            lunaDiv.textContent = "You can download his resume directly from the Projects section on this page!";
+        } else {
+            lunaDiv.textContent = "That's interesting! Adrian is always looking to learn more about tech and collaboration.";
+        }
+        
+        content.appendChild(lunaDiv);
+        content.scrollTop = content.scrollHeight;
+    }, 800);
+}
+
+// Scroll Animation
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1 });
