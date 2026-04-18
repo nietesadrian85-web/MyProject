@@ -138,21 +138,8 @@ h3 { color: var(--accent); font-family: 'Space Grotesk', sans-serif; margin-bott
     border: 1px solid var(--border);
 }
 
-/* ===== CHATBOT UI (FIXED) ===== */
+/* CHATBOT */
 #chat-head { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: var(--accent); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 2000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-
-#chat-box {
-    position: fixed; bottom: 100px; right: 30px; width: 330px; height: 450px;
-    background: #141417; border: 1px solid var(--accent); border-radius: 20px;
-    display: none; flex-direction: column; z-index: 2000; box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-}
-.chat-header { background: var(--accent); color: #000; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; border-radius: 18px 18px 0 0; }
-.chat-body { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
-.msg { padding: 10px 14px; border-radius: 15px; max-width: 80%; font-size: 0.85rem; }
-.luna { background: #1f1f23; align-self: flex-start; }
-.user { background: var(--accent); color: #000; align-self: flex-end; }
-.chat-input-area { padding: 15px; border-top: 1px solid var(--border); display: flex; gap: 10px; }
-.chat-input-area input { flex: 1; background: #0a0a0c; border: 1px solid var(--border); padding: 10px; color: white; border-radius: 8px; outline: none; }
 
 /* ANIMATION */
 .fade { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
@@ -161,7 +148,6 @@ h3 { color: var(--accent); font-family: 'Space Grotesk', sans-serif; margin-bott
 @media (max-width: 768px) {
     .contact-list { grid-template-columns: 1fr; }
     section { margin: 20px; padding: 40px 20px; }
-    #chat-box { width: 280px; right: 20px; }
 }
 </style>
 </head>
@@ -278,60 +264,9 @@ h3 { color: var(--accent); font-family: 'Space Grotesk', sans-serif; margin-bott
 
 <div id="chat-head" onclick="toggleChat()"><i class="fa-solid fa-robot" style="color:#000; font-size: 1.5rem;"></i></div>
 
-<div id="chat-box">
-    <div class="chat-header"><span>Luna AI</span><span onclick="toggleChat()" style="cursor:pointer">&times;</span></div>
-    <div class="chat-body" id="chat-content">
-        <div class="msg luna">Hi! I'm Luna. I can help you with questions about Adrian's coding, design projects, or contact info. How can I help?</div>
-    </div>
-    <div class="chat-input-area">
-        <input type="text" id="chat-input" placeholder="Type a message..." onkeypress="handleKey(event)">
-        <button onclick="sendMessage()" style="background:none; border:none; color:var(--accent); cursor:pointer;"><i class="fa-solid fa-paper-plane"></i></button>
-    </div>
-</div>
-
 <script>
-// --- CHAT LOGIC ---
-function toggleChat() {
-    const box = document.getElementById('chat-box');
-    box.style.display = (box.style.display === 'flex') ? 'none' : 'flex';
-}
+function toggleChat() { alert("Luna Chat is coming soon to assist you!"); }
 
-function handleKey(e) { if (e.key === 'Enter') sendMessage(); }
-
-function sendMessage() {
-    const input = document.getElementById('chat-input');
-    const content = document.getElementById('chat-content');
-    if (input.value.trim() === "") return;
-
-    const userDiv = document.createElement('div');
-    userDiv.className = 'msg user';
-    userDiv.textContent = input.value;
-    content.appendChild(userDiv);
-
-    const text = input.value.toLowerCase();
-    input.value = "";
-    content.scrollTop = content.scrollHeight;
-
-    setTimeout(() => {
-        const lunaDiv = document.createElement('div');
-        lunaDiv.className = 'msg luna';
-        
-        if (text.includes("java") || text.includes("coding")) {
-            lunaDiv.textContent = "Adrian is proficient in Java and building web structures with HTML/CSS.";
-        } else if (text.includes("figma") || text.includes("canva") || text.includes("design")) {
-            lunaDiv.textContent = "He creates high-fidelity prototypes in Figma and visual content in Canva.";
-        } else if (text.includes("contact") || text.includes("email")) {
-            lunaDiv.textContent = "You can email him at nietesadrian85@gmail.com!";
-        } else {
-            lunaDiv.textContent = "I'm Luna! I'm here to showcase Adrian's journey as an IT professional.";
-        }
-        
-        content.appendChild(lunaDiv);
-        content.scrollTop = content.scrollHeight;
-    }, 700);
-}
-
-// --- SCROLL ANIMATION ---
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1 });
